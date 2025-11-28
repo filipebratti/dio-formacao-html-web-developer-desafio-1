@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tags - Guia Prático</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+
+        header {
+            background-color: #0d0d0d;
+            border-bottom: 3px solid #ff8c00;
+            padding: 30px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 1.8em;
+            color: #ff8c00;
+            margin-bottom: 5px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        nav {
+            margin-top: 15px;
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff8c00;
+        }
+
+        nav a.active {
+            color: #ff8c00;
+            border-bottom: 2px solid #ff8c00;
+            padding-bottom: 3px;
+        }
+
+        main {
+            margin-top: 180px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 40px;
+        }
+
+        .column-left {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .column-right {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        article {
+            border-left: 4px solid #ff8c00;
+            padding-left: 25px;
+        }
+
+        article h2 {
+            font-size: 1.4em;
+            color: #fff;
+            margin-bottom: 15px;
+            font-weight: normal;
+            position: relative;
+        }
+
+        article h2::before {
+            content: "";
+            position: absolute;
+            left: -25px;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background-color: #ff8c00;
+        }
+
+        article h3 {
+            font-size: 1.1em;
+            color: #ffb84d;
+            margin: 20px 0 10px 0;
+            font-weight: normal;
+        }
+
+        article p {
+            color: #d0d0d0;
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+
+        .tag-demo {
+            background-color: #252525;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 3px;
+            font-size: 0.95em;
+            color: #b0b0b0;
+            border-left: 3px solid #2c5282;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #fff;
+            margin: 25px 0 15px 0;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #ffb84d;
+            margin: 20px 0 12px 0;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            color: #ff8c00;
+            margin: 18px 0 10px 0;
+        }
+
+        h4 {
+            font-size: 1.1em;
+            color: #ffa500;
+            margin: 15px 0 8px 0;
+        }
+
+        h5 {
+            font-size: 1.05em;
+            color: #ffb84d;
+            margin: 12px 0 6px 0;
+        }
+
+        h6 {
+            font-size: 1em;
+            color: #ddd;
+            margin: 10px 0 5px 0;
+            font-weight: bold;
+        }
+
+        mark {
+            background-color: #3d3d1f;
+            color: #ffeb3b;
+            padding: 2px 5px;
+        }
+
+        strong {
+            color: #ff8c00;
+            font-weight: bold;
+        }
+
+        i {
+            color: #a0c4ff;
+            font-style: italic;
+        }
+
+        u {
+            text-decoration: underline;
+            text-decoration-color: #ff8c00;
+            text-underline-offset: 3px;
+        }
+
+        del {
+            color: #888;
+            text-decoration: line-through;
+        }
+
+        small {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        a {
+            color: #a0c4ff;
+            text-decoration: none;
+            border-bottom: 1px solid #a0c4ff;
+            transition: all 0.2s;
+        }
+
+        a:hover {
+            color: #ff8c00;
+            border-bottom-color: #ff8c00;
+        }
+
+        ol, ul {
+            margin: 15px 0 15px 30px;
+            color: #c0c0c0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed #444;
+            margin: 30px 0;
+        }
+
+        blockquote {
+            border-left: 3px solid #ff8c00;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #aaa;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .example-box {
+            background-color: #1f1f1f;
+            border: 1px solid #333;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 3px;
+            color: #b0b0b0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+        }
+
+        abbr {
+            border-bottom: 1px dotted #ff8c00;
+            cursor: help;
+            text-decoration: none;
+        }
+
+        sup {
+            color: #ffb84d;
+            font-size: 0.8em;
+            vertical-align: super;
+        }
+
+        sub {
+            color: #ffb84d;
+            font-size: 0.8em;
+            vertical-align: sub;
+        }
+
+        .highlight {
+            background-color: #2d3d00;
+            color: #b0ff70;
+            padding: 2px 4px;
+        }
+
+        footer {
+            background-color: #0d0d0d;
+            border-top: 1px solid #333;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            margin-top: 60px;
+            font-size: 0.9em;
+        }
+
+        .intro-box {
+            background-color: #1f1f2e;
+            border-left: 4px solid #2c5282;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 3px;
+        }
+
+        .intro-box h2 {
+            color: #a0c4ff;
+            margin-bottom: 10px;
+        }
+
+        .intro-box p {
+            color: #a0a0a0;
+        }
+
+        @media (max-width: 1024px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            header h1 {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 15px;
+            }
+
+            header h1 {
+                font-size: 1.3em;
+            }
+
+            header p {
+                display: none;
+            }
+
+            nav {
+                gap: 10px;
+                font-size: 0.85em;
+            }
+
+            main {
+                margin-top: 140px;
+                padding: 20px;
+                gap: 20px;
+            }
+
+            article {
+                padding-left: 15px;
+            }
+
+            body {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HTML Tags</h1>
+        <p>Guia prático de uso e exemplos</p>
+        <nav>
+            <a href="#titulos">Títulos</a>
+            <a href="#formatacao">Formatação</a>
+            <a href="#listas">Listas</a>
+            <a href="#links">Links</a>
+            <a href="#citacoes">Citações</a>
+            <a href="#avancado">Avançado</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="column-left">
+            <!-- Seção Títulos -->
+            <article id="titulos">
+                <h2>Hierarquia de Títulos</h2>
+                <p>Os títulos em HTML organizam o conteúdo em diferentes níveis de importância.</p>
+
+                <div class="tag-demo">
+                    <h1>Este é um &lt;h1&gt;</h1>
+                    <p>O título principal da página, deve aparecer apenas uma vez.</p>
+                </div>
+
+                <div class="tag-demo">
+                    <h2>Este é um &lt;h2&gt;</h2>
+                    <p>Subtítulo principal, agrupa seções maiores.</p>
+                </div>
+
+                <div class="tag-demo">
+                    <h3>Este é um &lt;h3&gt;</h3>
+                    <p>Terceiro nível, para subdivisões.</p>
+                </div>
+
+                <div class="tag-demo">
+                    <h4>Este é um &lt;h4&gt;</h4>
+                    <h5>Este é um &lt;h5&gt;</h5>
+                    <h6>Este é um &lt;h6&gt;</h6>
+                    <p>Títulos menos importantes, usados raramente.</p>
+                </div>
+            </article>
+
+            <!-- Seção Formatação -->
+            <article id="formatacao">
+                <h2>Formatação de Texto</h2>
+
+                <h3>Ênfase com &lt;strong&gt;</h3>
+                <p>Use <strong>strong</strong> para indicar importância semântica.</p>
+
+                <h3>Itálico com &lt;i&gt;</h3>
+                <p>Use <i>itálico</i> para citações, nomes científicos e termos estrangeiros.</p>
+
+                <h3>Sublinhado com &lt;u&gt;</h3>
+                <p>Use <u>sublinhado</u> com cuidado, não confundir com links.</p>
+
+                <h3>Destaque com &lt;mark&gt;</h3>
+                <p>Use <mark>mark</mark> para <mark>destacar trechos</mark> importantes do texto.</p>
+
+                <h3>Texto Pequeno com &lt;small&gt;</h3>
+                <p>Este é texto normal. <small>Este é um texto pequeno.</small></p>
+
+                <h3>Deletado com &lt;del&gt;</h3>
+                <p>O preço era <del>R$ 100,00</del> agora custa R$ 79,90.</p>
+
+                <div class="tag-demo">
+                    Combinação: <strong>Texto importante</strong> em <i>itálico</i> com <mark>destaque</mark> e <u>sublinhado</u>
+                </div>
+            </article>
+
+            <!-- Seção Listas Ordenadas -->
+            <article id="listas">
+                <h2>Listas Ordenadas</h2>
+                <p>Use &lt;ol&gt; quando a ordem importa:</p>
+
+                <h3>Processo de Desenvolvimento</h3>
+                <ol>
+                    <li>Planejar o projeto e requisitos</li>
+                    <li>Criar wireframes e mockups</li>
+                    <li>Implementar estrutura HTML</li>
+                    <li>Aplicar estilos CSS</li>
+                    <li>Adicionar interatividade com JavaScript</li>
+                    <li>Testar compatibilidade entre navegadores</li>
+                    <li>Deploy e monitoramento</li>
+                </ol>
+
+                <h3>Listas Desordenadas</h3>
+                <p>Use &lt;ul&gt; quando a ordem não importa:</p>
+                <ul>
+                    <li>Frontend: HTML, CSS, JavaScript</li>
+                    <li>Backend: Node.js, Python, Java</li>
+                    <li>Banco de Dados: MySQL, MongoDB, PostgreSQL</li>
+                    <li>Ferramentas: Git, Docker, AWS</li>
+                </ul>
+
+                <h3>Listas Aninhadas</h3>
+                <ul>
+                    <li>Linguagens Web
+                        <ul>
+                            <li>HTML5
+                                <ol>
+                                    <li>Semântica</li>
+                                    <li>Acessibilidade</li>
+                                    <li>APIs</li>
+                                </ol>
+                            </li>
+                            <li>CSS3</li>
+                            <li>JavaScript ES6+</li>
+                        </ul>
+                    </li>
+                    <li>Frameworks
+                        <ul>
+                            <li>React</li>
+                            <li>Vue</li>
+                            <li>Angular</li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="column-right">
+            <!-- Seção Links -->
+            <article id="links">
+                <h2>Links e Âncoras</h2>
+
+                <h3>Links Externos</h3>
+                <p>A tag <strong>&lt;a&gt;</strong> cria hiperlinks para outras páginas.</p>
+
+                <p>Visite <a href="https://www.dio.me" target="_blank">DIO - Digital Innovation One</a> para mais cursos.</p>
+
+                <p>Confira a <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank">documentação completa de HTML</a> na Mozilla Developer Network.</p>
+
+                <h3>Links Internos</h3>
+                <p>Você pode criar <a href="#titulos">links para seções da mesma página</a>.</p>
+
+                <h3>Atributos Comuns</h3>
+                <ul>
+                    <li><strong>href</strong> - URL de destino</li>
+                    <li><strong>target="_blank"</strong> - Abre em nova aba</li>
+                    <li><strong>title</strong> - Texto ao passar o mouse</li>
+                    <li><strong>rel</strong> - Relacionamento com o destino</li>
+                </ul>
+
+                <hr>
+            </article>
+
+            <!-- Seção Blockquote -->
+            <article id="citacoes">
+                <h2>Citações</h2>
+
+                <h3>&lt;blockquote&gt;</h3>
+                <p>Use para citações longas e importantes:</p>
+
+                <blockquote>
+                    "O melhor lugar para começar é onde você está agora. Não espere pelas condições perfeitas; elas nunca vêm." - <strong>David C. Thomas</strong>
+                </blockquote>
+
+                <blockquote>
+                    "Web design é como design gráfico, com a restrição adicionada de usar navegadores. Mas não é um limite, é uma oportunidade." - <i>Desenvolvedor Experiente</i>
+                </blockquote>
+
+                <h3>&lt;hr&gt; - Separador Horizontal</h3>
+                <p>Use para separar seções de conteúdo não relacionadas.</p>
+
+                <hr>
+
+                <p>A linha acima é criada com a tag &lt;hr&gt;.</p>
+            </article>
+
+            <!-- Seção Avançada -->
+            <article id="avancado">
+                <h2>Tags Avançadas</h2>
+
+                <h3>&lt;abbr&gt; - Abreviações</h3>
+                <p>
+                    A <abbr title="HyperText Markup Language">HTML</abbr> trabalha junto com <abbr title="Cascading Style Sheets">CSS</abbr>
+                    e <abbr title="JavaScript">JS</abbr> para criar experiências web modernas.
+                </p>
+
+                <h3>&lt;sub&gt; e &lt;sup&gt;</h3>
+                <p>
+                    A fórmula da água é H<sub>2</sub>O.<br>
+                    A velocidade da luz é c ≈ 3×10<sup>8</sup> m/s.<br>
+                    Referência<sup>[1]</sup> em artigos acadêmicos.
+                </p>
+
+                <h3>&lt;mark&gt; - Marcação Semântica</h3>
+                <p>
+                    Use <span class="highlight">&lt;mark&gt;</span> para <mark>destacar conteúdo relevante</mark> para o usuário,
+                    não apenas para estilo visual.
+                </p>
+
+                <h3>&lt;font&gt; - Tag Legada</h3>
+                <div class="tag-demo">
+                    &lt;font color="red"&gt; é obsoleta em HTML5
+                </div>
+                <p><small>Prefira usar CSS para colorir texto. Exemplo:</small></p>
+                <div class="tag-demo">
+                    &lt;span style="color: #ff8c00;"&gt;Texto colorido&lt;/span&gt;
+                </div>
+
+                <h3>Combinando Tags</h3>
+                <p>
+                    Você pode combinar múltiplas tags para criar efeitos complexos:<br>
+                    <strong><i><u>Texto com negrito, itálico e sublinhado</u></i></strong>
+                </p>
+
+                <p>
+                    Ou: <mark><strong>Destaque com ênfase</strong></mark>
+                </p>
+
+                <p>
+                    Até: <del>Conteúdo antigo</del> → Conteúdo novo
+                </p>
+            </article>
+
+            <hr>
+
+            <div class="intro-box">
+                <h2>Resumo das Tags Utilizadas</h2>
+                <p>
+                    <strong>Estrutura:</strong> &lt;h1&gt; até &lt;h6&gt;, &lt;p&gt;, &lt;hr&gt;<br>
+                    <strong>Formatação:</strong> &lt;mark&gt;, &lt;small&gt;, &lt;i&gt;, &lt;u&gt;, &lt;strong&gt;, &lt;del&gt;<br>
+                    <strong>Listas:</strong> &lt;ol&gt;, &lt;ul&gt;, &lt;li&gt;<br>
+                    <strong>Links:</strong> &lt;a&gt;<br>
+                    <strong>Avançado:</strong> &lt;blockquote&gt;, &lt;abbr&gt;, &lt;sub&gt;, &lt;sup&gt;, &lt;font&gt;
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desafio de Projeto - DIO Formação HTML Web Developer</p>
+        <p><small>Página criada com HTML5 puro, demonstrando todas as tags solicitadas.</small></p>
+    </footer>
+</body>
+</html>
